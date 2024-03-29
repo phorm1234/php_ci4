@@ -1,11 +1,29 @@
 <?php $this->extend('backend/layout/auth-layout') ?>
 <?php $this->section('content')  ?>
-
+<?php helper('form'); // Load form helper if not already loaded ?>
 <div class="login-box bg-white box-shadow border-radius-10">
 							<div class="login-title">
 								<h2 class="text-center text-primary">Login</h2>
 							</div>
-							<form action="" method="POST">
+                            <?php $validation = \Config\Services::validation(); ?>
+							<form action="<?= route_to('admin.login.handler') ?>" method="POST">
+                                <?= csrf_field() ?>
+                                    <?php if(!empty(session()->getFlashdata('success'))) : ?>
+                                        <div class="aler alert-success">
+                                            <?= session()->getFlashdata('success') ?>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                             </button>
+                                         </div>
+                                    <?php endif; ?>
+                                    <?php if(!empty(session()->getFlashdata('fail'))) : ?>
+                                        <div class="aler alert-danger">
+                                            <?= session()->getFlashdata('fail') ?>
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                             </button>
+                                         </div>
+                                    <?php endif; ?>
 								<!-- <div class="select-role">
 									<div class="btn-group btn-group-toggle" data-toggle="buttons">
 										<label class="btn">
@@ -20,7 +38,7 @@
       <path id="Path_2" data-name="Path 2" d="M36.127,22.68H30.486V21.566A5.573,5.573,0,0,0,24.92,16H16.013a5.573,5.573,0,0,0-5.566,5.566V22.68H4.806a3.336,3.336,0,0,0-3.222,2.508A12.06,12.06,0,0,0,13.555,36.039h3.571V34.926a1.113,1.113,0,0,1,1.113-1.113h4.453a1.113,1.113,0,0,1,1.113,1.113v1.113h3.571A12.06,12.06,0,0,0,39.349,25.188,3.336,3.336,0,0,0,36.127,22.68Zm-7.867,0H12.673V21.566a3.344,3.344,0,0,1,3.34-3.34H24.92a3.344,3.344,0,0,1,3.34,3.34Z" transform="translate(-1.466)" fill="#1b00ff"></path>
       <path id="Path_3" data-name="Path 3" d="M0,436v1.113a3.344,3.344,0,0,0,3.34,3.34H34.66a3.344,3.344,0,0,0,3.34-3.34V436Z" transform="translate(0 -388.828)" fill="#1b00ff"></path>
     </g>
-  </g>
+  </g>s
 </svg>
 											</div>
 											<span>I'm</span>
@@ -45,17 +63,27 @@
 									</div>
 								</div> -->
 								<div class="input-group custom">
-									<input type="text" class="form-control form-control-lg" placeholder="Username">
+									<input type="text" class="form-control form-control-lg" placeholder="Username or Email" name="login_id" value="<?= set_value('login_id') ?>" >
 									<div class="input-group-append custom">
 										<span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
 									</div>
 								</div>
+                                <?php if($validation->getError('login_id')): ?>
+                                    <div class="d-block text-danger" style="margin-top:-25px;margin-bottom:15px">
+                                        <?= $validation->getError('login_id') ?>
+                                     </div>
+                                     <?php endif; ?>
 								<div class="input-group custom">
-									<input type="password" class="form-control form-control-lg" placeholder="**********">
+									<input type="password" class="form-control form-control-lg" placeholder="**********" name="password" value="<?= set_value('password') ?>">
 									<div class="input-group-append custom">
 										<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
 									</div>
 								</div>
+                                <?php if($validation->getError('password')): ?>
+                                    <div class="d-block text-danger" style="margin-top:-25px;margin-bottom:15px">
+                                        <?= $validation->getError('password') ?>
+                                     </div>
+                                <?php endif; ?>
 								<div class="row pb-30">
 									<div class="col-6">
 										<div class="custom-control custom-checkbox">
