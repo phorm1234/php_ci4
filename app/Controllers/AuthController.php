@@ -8,6 +8,7 @@ use App\Libraries\CIAuth;
 use App\Libraries\Hash;
 use App\Models\User;
 
+
 class AuthController extends BaseController
 {
     protected $helper = ['url','form'];
@@ -68,7 +69,7 @@ class AuthController extends BaseController
             ]);
 
         }
-
+        // end check validate front
 
         if ( !$isValid) {
             return view('backend/pages/auth/login',[
@@ -78,47 +79,30 @@ class AuthController extends BaseController
         } else {
 
             // echo 'Form validated';
-            $user = new User;
+            // $user = new User();
+
+            // $builder = $db->table('user');
+            $userModel = new User();
 
             $login_id = $this->request->getVar('login_id'); // var login_id
 
-            $userInfo = $user->whereIn($fieldType,$login_id)->first(); //s
-            // echo $user;
-            // $login_id = $_POST['login_id'];
-            // $pass = $_POST['password'];
 
+            // $userInfo = $userModel->where($fieldType,$login_id)->first();
 
+            $userInfo = $userModel->getUserByUsername($fieldType, $login_id);
         
-            try {
-                $user = new User();
-                $userInfo = $user->where($fieldType, $login_id)->first();
+            $check_password = Hash::check($this->request->getVar('password'),$userInfo['password']);
+      
             
-                if ($userInfo) {
-                    // User found, proceed with further actions
-                    echo 'Found';
-                } else {
-                    echo 'User not found.';
-                }
-            } catch (\Exception $e) {
-                echo 'Error: ' . $e->getMessage();
-            }
+            if (!$check_password) {
 
+                return redirect()->route('admin.login.form')->with('fail','Wrong password')->withInput();
+            } else {
 
-            
-            // $userInfo = $user->where($fieldType,$this->request->getVar('login_id'))->first();
-        
-
-            // $check_password = Hash::check($this->request->getVar('password'),$userInfo['password']);
-            // // die;
-
-            // if( !$check_password ){
-
-            //     return redirect()->route('admin.login.form')->with('fail','Wrong password')->withInput();
-            // } else {
-            //     CIAuth::setCIAuth($userInfo); // Importtant line
-            //     return redirect()->route('admin.home');
+                CIAuth::setCIAuth($userInfo); // Importtant line
+                return redirect()->route('admin.home');
    
-            // }
+            }
 
             //  log_message();
         }
@@ -130,6 +114,5 @@ class AuthController extends BaseController
 
      }   
 
-
-
+  
 }
