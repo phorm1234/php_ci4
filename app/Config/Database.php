@@ -24,6 +24,29 @@ class Database extends Config
     /**
      * The default database connection.
      */
+    // public array $default = [
+    //     'DSN'         => '',
+    //     'hostname'    => '192.168.1.2',
+    //     'username'    => 'sa',
+    //     'password'    => '',
+    //     'database'    => 'TBT',
+    //     'DBDriver' => 'SQLSRV',
+    //     'DBPrefix' => '',
+    //     'pConnect' => false,
+    //     'DBDebug'  => (ENVIRONMENT !== 'production'),
+    //     'cacheOn'  => false,
+    //     'cacheDir' => '',
+    //     'charset'  => 'utf8',
+    //     'DBCollat' => 'utf8_general_ci',
+    //     'swapPre'  => '',
+    //     'encrypt'  => false,
+    //     'compress' => false,
+    //     'strictOn' => false,
+    //     'failover' => [],
+    //     'port'     => 1433, // Change this to your SQL Server port if needed
+    // ];
+
+
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
@@ -33,7 +56,7 @@ class Database extends Config
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
-        'DBDebug'      => true,
+        'DBDebug'      => true, // Set to true for debugging
         'charset'      => 'utf8',
         'DBCollat'     => 'utf8_general_ci',
         'swapPre'      => '',
@@ -45,6 +68,40 @@ class Database extends Config
         'numberNative' => false,
     ];
 
+      /**
+     * The default database connection.
+     */
+    // public array $sqlsrv_tbt = [
+    //     'DSN'         => '',
+    //     'hostname'    => '192.168.1.2',
+    //     'username'    => 'sa',
+    //     'password'    => '',
+    //     'database'    => 'TBT',
+    //     'DBDriver' => 'SQLSRV',
+    //     'DBPrefix' => '',
+    //     'pConnect' => false,
+    //     'DBDebug'  => (ENVIRONMENT !== 'production'),
+    //     'cacheOn'  => false,
+    //     'cacheDir' => '',
+    //     'charset'  => 'utf8',
+    //     'DBCollat' => 'utf8_general_ci',
+    //     'swapPre'  => '',
+    //     'encrypt'  => false,
+    //     'compress' => false,
+    //     'strictOn' => false,
+    //     'failover' => [],
+    //     'port'     => 1433, // Change this to your SQL Server port if needed
+    // ];
+
+
+    // public $sqlsrv_tbt = [
+    //     'DSN'         => 'odbc:Driver={ODBC Driver 18 for SQL Server};Server=192.168.1.2;Database=your_database_name;',
+    //     'username'    => 'sa',
+    //     'password'    => '',
+    //     'DBDriver'    => 'ODBC',
+    //     // Other configuration options...
+    // ];
+    
     /**
      * This database connection is used when
      * running PHPUnit database tests.

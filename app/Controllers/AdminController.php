@@ -19,6 +19,14 @@ class AdminController extends BaseController
         return view('backend/pages/home',$data);
     }
 
+    public function reportv() {
+        $data = [
+            'pageTitle'=>'ReportV',
+        ];
+
+        return view('backend/pages/reportv',$data);
+    }
+
     public function logoutHandler() {
 
         CIAuth::forget();
