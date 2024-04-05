@@ -44,7 +44,8 @@
 								><span class="mtext">Master</span>
 							</a>
 							<ul class="submenu">
-								<li><a href="introduction.html">TBT Group Name</a></li>
+								<li><a href="<?= route_to('admin.master.product') ?>">Product</a></li>
+								<li><a href="<?= route_to('admin.master.customer') ?>">Customer</a></li>
 								<!-- <li><a href="getting-started.html">Getting Started</a></li>
 								<li><a href="color-settings.html">Color Settings</a></li>
 								<li>

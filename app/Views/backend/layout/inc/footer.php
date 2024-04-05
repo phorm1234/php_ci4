@@ -3,7 +3,7 @@
 					<!-- <a href="https://github.com/dropways" target="_blank"
 						>Ankit Hingarajiya</a
 					> -->
-					Tokoy Byokane (Thailand) Co.,Ltd
+					Tokyo Byokane (Thailand) Co.,Ltd
 					<!-- 9/67-68 หมู่ 5 ถนนพหลโยธิน รังสิต พรอสเพอร์ เอสเตท
 						ตำบลคลองหนึ่ง อำเภอคลองหลวง จังหวัดปทุมธานี 12120
 						โทรศัพท์: 02-516-0916

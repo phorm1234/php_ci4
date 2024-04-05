@@ -15,6 +15,6 @@ class UserSeeder extends Seeder
             'password'=>password_hash('12345',PASSWORD_BCRYPT),
         );
 
-        $this->db->table('users')->insert($data);
+        $this->db->table('users')->insertBatch($data);
     }
 }

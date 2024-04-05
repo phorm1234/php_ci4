@@ -9,7 +9,7 @@ use App\Libraries\Hash;
 use App\Models\User;
 
 
-class ReportvControllers extends BaseController
+class ReportvController extends BaseController
 {
     protected $helper = ['url','form'];
 
