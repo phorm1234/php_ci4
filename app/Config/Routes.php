@@ -11,6 +11,34 @@ $routes->get('/test', 'Home::Test');
 
 $routes->get('/test-database', 'TestControllers::testDatabaseConnection');
 
+//Master get_productbyid
+$routes->post('getproductbyid', 'MasterController::get_product', ['as' => 'master.getproductbyid']);
+//master get_datatable
+$routes->post('gettablemasterproduct', 'MasterController::get_table_masterproduct', ['as' => 'master.get_table_masterproduct']);
+//Master insetproduct
+$routes->post('insertproduct', 'MasterController::insert_product');
+//Master updateproduct
+$routes->post('updateproduct', 'MasterController::update_product');
+//Master deleteproduct
+$routes->post('delete_product', 'MasterController::delete_product');
+
+
+
+
+
+//master get_datatable
+$routes->post('gettablecustomer', 'MasterController::get_table_mastercustomer', ['as' => 'master.get_table_mastercustomer']);
+//Master insetcustomer
+$routes->post('insertcustomer', 'MasterController::insert_customer');
+
+
+
+
+
+
+
+
+
 
 $routes->group('admin',static function($routes){
 
@@ -22,8 +50,13 @@ $routes->group('admin',static function($routes){
         //route Master
         $routes->get('masterproduct','MasterController::masterproduct',['as'=>'admin.master.product']);
         $routes->get('mastercustomer','MasterController::mastercustomer',['as'=>'admin.master.customer']);
+   
 
-        $routes->post('get_table_masterproduct', 'MasterController::get_table_masterproduct', ['as' => 'admin.master.get_table_masterproduct']);
+        // Define a route without query parameters
+        // $routes->get('get_product?product_id(:any)', 'MasterController::get_product?product_id=$1', ['as' => 'admin.master.getproduct']);
+
+
+        // $routes->get('get_product','MasterController::get_product',['as'=>'admin.master.getproduct']);
 
         // $routes->post('get_table_masterproduct','MasterController::table_product',['as'=>'admin.master.table_product']);
         //Gen report v
