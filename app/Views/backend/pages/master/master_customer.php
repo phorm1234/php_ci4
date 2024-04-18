@@ -1,8 +1,9 @@
 <?php $this->extend('backend/layout/pages_layout') ?>
 <?php $this->section('content') ?>
 
-
-
+        <!-- <button class="welcome-modal-btn" id="btn_add_customer" onclick="modal_customer(1,0)" >
+			<i class="fa fa-download"></i> Add Customer
+		</button> -->
             <!-- Modal -->
             <div
                 class="modal fade"
@@ -130,31 +131,28 @@
                             </table>
                         </div>
                     </div>
-
 					<!-- Simple Datatable End -->
-		
-		
-	
 				</div>
 	
 			</div>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 
         $(document).ready(function() {
             // Initialize the DataTable if it's not already initialized
-
-            alert($.fn.DataTable.isDataTable('#table_master_customer'));
-            if (!$.fn.DataTable.isDataTable('#table_master_customer')) {
-
-                datatable_customer();
-                alert($.fn.DataTable.isDataTable('#table_master_customer'));
-            }
+            // var temp_load = 0
+            // alert($.fn.DataTable.isDataTable('#table_master_customer'));
+            datatable_customer() 
+            // $("#table_master_customer").dataTable().fnDestroy();
         });
 
+       
+
         function datatable_customer() {
-           var customer_table = $('#table_master_customer').DataTable({
+           $('#table_master_customer').DataTable({          
                     "processing": true,
                     "serverSide": true,
                     "ajax": {
@@ -172,10 +170,9 @@
                     "paging": true, // Enable pagination
                     "pageLength": 10, // Optional: Set the number of records per page
                     "stateSave": true,
-                    "destroy":true
+                    "bDestroy": true
                 });
         }
- 
         //temp for save with modal
         var type_temp;
         var id_temp;
@@ -392,5 +389,4 @@
         //     }
 
     </script>
-
 <?php $this->endSection() ?>

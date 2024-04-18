@@ -30,9 +30,10 @@ $routes->post('delete_product', 'MasterController::delete_product');
 $routes->post('gettablecustomer', 'MasterController::get_table_mastercustomer', ['as' => 'master.get_table_mastercustomer']);
 //Master insetcustomer
 $routes->post('insertcustomer', 'MasterController::insert_customer');
-
-
-
+//gen insert report v
+$routes->post('gen_reportv','ReportvController::genreportv');
+//gen show reportv
+$routes->post('show_reportv','ReportvController::showreportv');
 
 
 
@@ -46,7 +47,7 @@ $routes->group('admin',static function($routes){
         // $routes->view('example-page','example-page');
         $routes->get('home','AdminController::index',['as'=>'admin.home']);
         //route reportv for admin
-        $routes->get('reportv','AdminController::reportv',['as'=>'admin.reportv']);
+        $routes->get('reportv','ReportvController::reportv',['as'=>'admin.reportv']);
         //route Master
         $routes->get('masterproduct','MasterController::masterproduct',['as'=>'admin.master.product']);
         $routes->get('mastercustomer','MasterController::mastercustomer',['as'=>'admin.master.customer']);
@@ -60,7 +61,7 @@ $routes->group('admin',static function($routes){
 
         // $routes->post('get_table_masterproduct','MasterController::table_product',['as'=>'admin.master.table_product']);
         //Gen report v
-        $routes->post('gen_reportv','ReportvController::gen_reportv',['as'=>'admin.reportv.genv']);
+        // $routes->post('gen_reportv','ReportvController::gen_reportv',['as'=>'admin.reportv.genv']);
         //logout
         $routes->get('logout','AdminController::logoutHandler',['as'=>'admin.logout']);
     });

@@ -69,7 +69,20 @@ jQuery(document).ready(function () {
 	// $('.collapse-box').on('shown.bs.collapse', function () {
 	// 	$(".customscroll").mCustomScrollbar("scrollTo",$(this));
 	// });
-
+	$(document).ready(function () {
+		"use strict";
+	
+		// Your existing initialization scripts
+	
+		// Initialize year picker
+		$(".year-picker").datepicker({
+			language: "en",
+			format: "yyyy",
+			startView: "years",
+			minViewMode: "years",
+			ignoreReadonly: true // Allow date selection even if the input is readonly
+		});
+	});
 	// code split
 	var entityMap = {
 		"&": "&amp;",
@@ -205,6 +218,7 @@ jQuery(document).ready(function () {
 		autoClose: true,
 		dateFormat: "MM yyyy",
 	});
+
 
 	// only time picker
 	$(".time-picker").timeDropper({

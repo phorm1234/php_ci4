@@ -1,4 +1,4 @@
-<?php helper('form'); // Load form helper if not already loaded ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -38,6 +38,7 @@
 		/>
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="/backend/vendors/styles/core.css" />
+		<link rel="stylesheet" type="text/css" href="/backend/vendors/styles/yearpicker.css" />
 		<link
 			rel="stylesheet"
 			type="text/css"
@@ -47,7 +48,7 @@
         <?php $this->renderSection('stylesheets') ?>
 	</head>
 	<body>
-		<div class="pre-loader">
+		<!-- <div class="pre-loader">
 			<div class="pre-loader-box">
 				<div class="loader-logo">
 					<img src="/backend/vendors/images/deskapp-logo.svg" alt="" />
@@ -58,7 +59,7 @@
 				<div class="percent" id="percent1">0%</div>
 				<div class="loading-text">Loading...</div>
 			</div>
-		</div>
+		</div> -->
 
         <?php include('inc/header.php') ?>
 
@@ -85,11 +86,21 @@
 		<script src="/backend/vendors/scripts/script.min.js"></script>
 		<script src="/backend/vendors/scripts/process.js"></script>
 		<script src="/backend/vendors/scripts/layout-settings.js"></script>
-
+		<script src="/backend/vendors/scripts/yearpicker.js"></script>
+		<!-- <script src="/backend/vendors/scripts/yearpicker-v2.js"></script> -->
+		<!-- Datatable Old -->
 		<script src="/backend/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
 		<script src="/backend/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
 		<script src="/backend/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
 		<script src="/backend/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+		<!-- Datatable -->
+		<!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+		<script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap4.js"></script> -->
+		
+		
 		<!-- buttons for Export datatable -->
 		<script src="/backend/src/plugins/datatables/js/dataTables.buttons.min.js"></script>
 		<script src="/backend/src/plugins/datatables/js/buttons.bootstrap4.min.js"></script>
