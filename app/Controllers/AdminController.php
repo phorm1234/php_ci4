@@ -27,4 +27,9 @@ class AdminController extends BaseController
         return redirect()->route('admin.login.form')->with('fail','You are logged out!');
     }
 
+    public function profile() {
+        $data = array('pageTitle'=>'Profile');
+        return view('backend/pages/profile',$data);
+    }
+
 }

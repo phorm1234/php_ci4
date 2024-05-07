@@ -52,7 +52,7 @@
 			>
 				<div class="brand-logo">
 					<a href="login.html">
-						<img src="/backend/vendors/images/deskapp-logo.svg" alt="" />
+						<img src="/backend/vendors/images/tbt-logo2.png" alt="" />
 					</a>
 				</div>
 				<div class="login-menu">

@@ -1,9 +1,9 @@
 <div class="left-side-bar">
 			<div class="brand-logo">
 				<a href="index.html">
-					<img src="/backend/vendors/images/deskapp-logo.svg" alt="" class="dark-logo" />
+					<img src="/backend/vendors/images/tbt-logo2.png" alt="" class="dark-logo" />
 					<img
-						src="/backend/vendors/images/deskapp-logo-white.svg"
+						src="/backend/vendors/images/tbt-logo.png"
 						alt=""
 						class="light-logo"
 					/>
@@ -33,10 +33,16 @@
 							</a>
 						</li>
 						<li>
+							<a href="<?= route_to('admin.formng') ?>" class="dropdown-toggle no-arrow">
+								<span class="micon bi bi-receipt-cutoff"></span
+								><span class="mtext">NG FROM SALE</span>
+							</a>
+						</li>
+						<li>
 							<div class="dropdown-divider"></div>
 						</li>
 						<li>
-							<div class="sidebar-small-cap">Extra</div>
+							<div class="sidebar-small-cap">Core Data</div>
 						</li>
 						<li>
 							<a href="javascript:;" class="dropdown-toggle">
