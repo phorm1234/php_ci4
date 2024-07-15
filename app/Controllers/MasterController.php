@@ -148,7 +148,16 @@ class MasterController extends BaseController
 
     }
 
- 
+    public function balancestock()
+    {
+        $data = [
+            'pageTitle'=>'Balance Stock',
+        ];
+
+
+
+        return view('backend/pages/balance_stock',$data);
+    }
     
 
     // Method to handle deleting a product

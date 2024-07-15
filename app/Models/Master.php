@@ -60,15 +60,11 @@ class Master extends Model
 
         // var_dump('<pre>',$product_id);
         // die;
-
-
         $this->select('product_code, product_group, product_name');
 
         $this->where('product_code',$product_id);
 
         $query = $this->get();
-
-     
 
         return $query->getResult();
     }
@@ -133,8 +129,6 @@ class Master extends Model
         return $existingRecord !== null;
     }
 
-
-    
     // public function delete_product($product_code) {
     //     // Get the user_id from session
     //     $username = session()->get('userdata')['username'];

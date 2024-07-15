@@ -68,6 +68,27 @@ class Database extends Config
         'numberNative' => false,
     ];
 
+    public array $ErpDB = [
+        'DSN'      => '',
+        'hostname' => '192.168.1.2',
+        'username' => 'tbt',
+        'password' => 'root',
+        'database' => 'erptest',
+        'DBDriver' => 'MySQLi', // or use 'PDO' if you prefer
+        'DBPrefix' => '',
+        'pConnect' => false,
+        'DBDebug'  => (ENVIRONMENT !== 'production'),
+        'cacheOn'  => false,
+        'cacheDir' => '',
+        'charset'  => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
+        'swapPre'  => '',
+        'encrypt'  => false,
+        'compress' => false,
+        'strictOn' => false,
+        'failover' => [],
+        'port'     => 3306,
+    ];
       /**
      * The default database connection.
      */

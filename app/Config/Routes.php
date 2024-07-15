@@ -23,7 +23,7 @@ $routes->post('updateproduct', 'MasterController::update_product');
 $routes->post('delete_product', 'MasterController::delete_product');
 
 
-
+$routes->post('reportv/importBalanceStock', 'ReportvController::importBalanceStock');
 
 
 //master get_datatable
@@ -40,7 +40,8 @@ $routes->post('update_mb_v','ReportvController::updatembv');
 $routes->post('show_reportv','ReportvController::showreportv');
 //submit ng part
 $routes->post('ng_from_sale','ReportvController::ngfromsale_update');
-
+//
+$routes->post('searchngtable','ReportvController::search_ng_table');
 
 
 
@@ -59,6 +60,8 @@ $routes->group('admin',static function($routes){
         //route Master
         $routes->get('masterproduct','MasterController::masterproduct',['as'=>'admin.master.product']);
         $routes->get('mastercustomer','MasterController::mastercustomer',['as'=>'admin.master.customer']);
+
+        $routes->get('balancestock','MasterController::balancestock',['as'=>'admin.balancestock']);
         
         $routes->get('profile','AdminController::profile',['as'=>'admin.profile']);
 
@@ -81,7 +84,3 @@ $routes->group('admin',static function($routes){
     });
 
 });
-
-
-
-
