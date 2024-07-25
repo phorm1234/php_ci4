@@ -1317,7 +1317,8 @@ class ReportvController extends BaseController
                     $sale_amt12=$result_sale[0]['M12'];
                 }
                 $this->balance_stock->select('balance_stock_quantity');
-                $this->balance_stock->where("customer_code",trim($inputCust));
+                // $this->balance_stock->where("customer_code",trim($inputCust));
+                $this->balance_stock->whereIn("customer_code", $customerCodes);
                 $this->balance_stock->where("ven_product_code",$trim_custpart);
                 $this->balance_stock->where("balance_stock_year",$y );
                 $balance_amt = $this->balance_stock->get()->getRow();
@@ -2105,7 +2106,7 @@ class ReportvController extends BaseController
                                [PRI_REMARK],
                                [PRI_CRDATE]
                         FROM [TBT].[dbo].[MSTPRI]
-                        WHERE [PRI_STATUS] != 5 AND [PRI_CSCODE] IN ($placeholders)
+                        WHERE  [PRI_CSCODE] IN ($placeholders)
                         ORDER BY [PRI_CRDATE] ASC";
     
                 $query = $db_srv->query($sql, $customerCodes);
